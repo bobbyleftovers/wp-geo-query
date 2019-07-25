@@ -12,12 +12,12 @@ So a complete set of args might look like this:
 			'posts_per_page' => -1,
 			'paged' => 1,
 			'geo_query' => array(
-				'latitude'  => 40.4952275,		// center of the search
-				'longitude' => -74.6487578,		// center of the search
-				'distance'  => 30,			// return results within radius
-				'units'     => 'miles'			// measurement type (miles, mi, kilometers, km)
+				'latitude'  => 40.4952275,	// center of the search
+				'longitude' => -74.6487578,	// center of the search
+				'distance'  => 30,		// return results within radius
+				'units'     => 'miles'		// measurement type (miles, mi, kilometers, km)
 			),
-			'orderby'] => 'distance',			// this tells WP Query to sort by distance
+			'orderby'] => 'distance',		// this tells WP Query to sort by distance
 			'order']   => 'ASC'
 		)
 	);
