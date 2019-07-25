@@ -6,9 +6,9 @@ Install/activate the plugin. You'll need to be adding lat/lng values to your pos
 
 So a complete set of args might look like this:
 
-`$query = new WP_Query(
-	array(
-		'post_type' => 'store',
+`$query = new WP_Query( . 
+	array(  
+		'post_type' => 'store',  
 		'posts_per_page' => -1,
 		'paged' => 1,
 		'geo_query' => array(
