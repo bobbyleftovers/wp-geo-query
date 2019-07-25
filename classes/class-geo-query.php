@@ -22,13 +22,11 @@ class Geo_Query {
 		global $wpdb;
 		$geo_query = $query->get('geo_query');
 		if( $geo_query ) {
-			// echo '<br>fields<br>';
 
 			if( $sql ) {
 				$sql .= ', ';
 			}
 			$sql .= $this->haversine_term( $geo_query ) . " AS geo_query_distance";
-			// echo $sql.'<br>';
 		}
 		return $sql;
 	}
@@ -37,13 +35,11 @@ class Geo_Query {
 		global $wpdb;
 		$geo_query = $query->get('geo_query');
 		if( $geo_query ) {
-			// echo '<br>join<br>';
 			if( $sql ) {
 				$sql .= ' ';
 			}
 			$sql .= "INNER JOIN " . $wpdb->prefix . "directory_entries AS geo_query_lat ON ( " . $wpdb->prefix . "posts.ID = geo_query_lat.post_id ) ";
 			$sql .= "INNER JOIN " . $wpdb->prefix . "directory_entries AS geo_query_lng ON ( " . $wpdb->prefix . "posts.ID = geo_query_lng.post_id ) ";
-			// echo $sql.'<br>';
 		}
 		return $sql;
 	}
@@ -53,7 +49,6 @@ class Geo_Query {
 		global $wpdb;
 		$geo_query = $query->get('geo_query');
 		if( $geo_query ) {
-			// echo '<br>where<br>';
 			$lat_field = 'latitude';
 			if( !empty( $geo_query['lat_field'] ) ) {
 				$lat_field =  $geo_query['lat_field'];
@@ -72,14 +67,12 @@ class Geo_Query {
 			$haversine = $this->haversine_term( $geo_query );
 			$new_sql = $haversine . " <= %f ";
 			$sql .= $wpdb->prepare( $new_sql, $distance );
-			// echo $sql.'<br>';
 		}
 		return $sql;
 	}
 
 	// handle ordering
 	public function posts_orderby( $sql, $query ) {
-		// echo '<br>order<br>';
 		$geo_query = $query->get('geo_query');
 		if( $geo_query ) {
 			$orderby = $query->get('orderby');
@@ -90,7 +83,6 @@ class Geo_Query {
 				}
 				$sql = 'geo_query_distance ' . $order;
 			}
-			// echo $sql.'<br>';
 		}
 		return $sql;
 	}
@@ -115,7 +107,6 @@ class Geo_Query {
 	}
 
 	private function haversine_term( $geo_query ) {
-		// echo '<br>haversine<br>';
 		global $wpdb;
 		$units = "miles";
 		if( !empty( $geo_query['units'] ) ) {
