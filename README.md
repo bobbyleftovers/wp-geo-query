@@ -22,7 +22,7 @@ So a complete set of args might look like this:
 		)
 	);
 
-This would return all posts within 30 miles of the center. Under the hood this will inject SQL using several WordPress Hooks. The SQL will be based on the [Haversine Formula](https://en.wikipedia.org/wiki/Haversine_formula) for finding the distance between coordinates on a sphere. The first thing the hooks look for is the `geo_query` param. It it isn't there, then the query proceeds normally. If it is present, the Haversine Formula will be employed using the center and the individual post coordinates. The didstance is calculated and if it is under the radius the post will be added to the results.
+This would return all posts within 30 miles of the center. Under the hood this will inject SQL using several WordPress Hooks. The SQL will be based on the [Haversine Formula](https://en.wikipedia.org/wiki/Haversine_formula) for finding the distance between coordinates on a sphere. The first thing the hooks look for is the `geo_query` param. It it isn't there, then the query proceeds normally. If it is present, the Haversine Formula will be employed using the center and the individual post coordinates. The distance is calculated and if it is under the radius the post will be added to the results.
 
 I've had this come in super handy on a few occasions. It makes building a store-locator very simple, as the hard part is now done. Hope it does the same for you.
 
