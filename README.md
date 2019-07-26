@@ -1,5 +1,5 @@
 # WP Location and Radius Query Vars
-Disclaimer: I did not write the sql found here. I've only adapted it to fit my needs and have expanded on that by creating this plugin. Hope you enjoy.
+Disclaimer: This was modified to pull values from a custom DB table, so you may want to point it back to wp_postmeta if needed. I did not write the sql found here. I've only adapted it to fit my needs and have expanded on that by creating this plugin.
 
 ## How It works
 Install/activate the plugin. You'll need to be adding lat/lng values to your posts in some way. You could use [this ACF extension](https://github.com/bobbyleftovers/acf-mapbox-field), but however you do it, you run this process by adding some new query params to WP Query:
